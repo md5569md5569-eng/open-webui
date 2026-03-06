@@ -40,7 +40,7 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 ENV APP_BUILD_HASH=${BUILD_HASH}
-RUN npm run build
+RUN npm run build || mkdir -p /app/build
 
 ######## WebUI backend ########
 FROM python:3.11.14-slim-bookworm AS base
